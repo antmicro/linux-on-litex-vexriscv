@@ -460,13 +460,16 @@ if "sdcore" in d["csr_bases"]:
 			reg = <
 				0x{sdphy_csr_base:x} 0x100
 				0x{sdcore_csr_base:x} 0x100
+                                0x{sdblock2mem:x} 0x100
+                                0x{sdmem2block:x} 0x100
 			>;
 			status = "okay";
 		}};
 	""".format(mmc_csr_base=d["csr_bases"]["sdcore"],
 			sdphy_csr_base=d["csr_bases"]["sdphy"],
-			sdcore_csr_base=d["csr_bases"]["sdcore"])
-
+                        sdcore_csr_base=d["csr_bases"]["sdcore"],
+                        sdmem2block=d["csr_bases"]["sdmem2block"],
+                        sdblock2mem=d["csr_bases"]["sdblock2mem"])
 dts += """
 	};"""
 
